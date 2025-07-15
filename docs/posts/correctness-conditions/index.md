@@ -39,15 +39,21 @@ To define whether an algorithm is correct, we must define an algorithm.
 
 An **algorithm** can be thought of as a sole method of a data structure that can be instantiated to a shared object. An **algorithm** when run in a system produces a set of histories. We can equate an algorithm with a set of histories.
 
-**Definition.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
+**Definition 1.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
 
-**Definition.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
+**Definition 2.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
 
 Note that a correctness condition based on this definition is a mapping of algorithm specifications to a validity functions, not a single validity function. For example, the linearizable queue has a validity function and the linearizable stack has a different validity function. Consequently, it's actually not sufficient to say that "An algorithm is linearizable". You should say, "A queue is linearizable" or "An algorithm is queue-linearizable".
 
 **Unresolved question.** What is an **algorithm specification**?
 
 ## Properties of A Correctness Condition
+
+Now that we know what a correctness condition is, we can consider the properties of a correctness condition. In actuality, we will consider _the properties of instantiated correctness conditions_, assuming that a correctness condition has the property $P$, iff any of its instantiated conditions has the property $P$.
+
+### Locality
+
+### Non-blocking
 
 ## Related Posts
 
