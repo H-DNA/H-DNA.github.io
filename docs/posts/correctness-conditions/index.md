@@ -51,7 +51,11 @@ Note that a correctness condition based on this definition is a mapping of algor
 
 Now that we know what a correctness condition is, we can consider the properties of a correctness condition. In actuality, we will consider _the properties of instantiated correctness conditions_, assuming that a correctness condition has the property $P$, iff any of its instantiated conditions has the property $P$.
 
+We will present two important properties<sup>4</sup>: locality and non-blocking.
+
 ### Locality
+
+**Definition 3.** An instantiated correctness condition $V$ is said to be **local** if $V(H) = 1$ iff $V(H|x) = 1$ for every object $x$ in the system.
 
 ### Non-blocking
 
