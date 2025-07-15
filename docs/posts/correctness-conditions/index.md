@@ -39,9 +39,9 @@ To define whether an algorithm is correct, we must define an algorithm.
 
 An **algorithm** can be thought of as a sole method of a data structure that can be instantiated to a shared object. An **algorithm** when run in a system produces a set of histories. We can equate an algorithm with a set of histories.
 
-**Definition 1.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
+**Definition 1.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
 
-**Definition 2.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
+**Definition 2.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
 
 Note that a correctness condition based on this definition is a mapping of algorithm specifications to a validity functions, not a single validity function. For example, the linearizable queue has a validity function and the linearizable stack has a different validity function. Consequently, it's actually not sufficient to say that "An algorithm is linearizable". You should say, "A queue is linearizable" or "An algorithm is queue-linearizable".
 
