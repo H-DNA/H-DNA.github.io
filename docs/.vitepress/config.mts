@@ -4,6 +4,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "blog",
   description: "A VitePress Site",
+  head: [
+    ["link", { rel: "icon", href: "/public/favicon.ico" }],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
