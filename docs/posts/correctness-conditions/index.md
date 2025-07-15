@@ -6,3 +6,5 @@ This section covers in great length about the topic of the correctness of concur
 - Q3: How to derive results from or reason about a correct program (theorem)?
 
 This section, for the time being, dedicates much of its time covering "linearizability" - a widely used correctness condition due to its many favorable characteristics, in other words, it is "useful" as meant by Q1'.
+
+## System Model
