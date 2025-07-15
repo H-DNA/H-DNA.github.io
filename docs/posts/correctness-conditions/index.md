@@ -9,7 +9,7 @@ What do we have in this topic? Well, if you think of an algorithm like a theorem
 
 We will answer mostly Q1 and Q1' in this introduction, deferring Q2 and Q3 to other subposts.
 
-Section [System Model](#system-model) will walkthrough the model of a system that runs a concurrent algorithm. In Section [Correctness Condition](#correctness-conditions), I will express my definition of a correctness condition based on what I have observed from some correctness conditions: serializability<sup>1</sup>, quiescent consistency<sup>2</sup>, sequential consistency<sup>3</sup> and linearizability<sup>4</sup>. Section [Properties Of A Correctness Condition](#properties-of-a-correctness-condition) will specify some properties that a useful correctness condition could satisfy.
+Section [System Model](#system-model) will walkthrough the model of a system that runs a concurrent algorithm. In Section [Correctness Condition](#correctness-conditions), I will express my definition of a correctness condition based on what I have observed from some correctness conditions: serializability<sup>1</sup>, quiescent consistency<sup>2</sup>, sequential consistency<sup>3</sup> and linearizability<sup>4</sup>. Section [Properties of A Correctness Condition](#properties-of-a-correctness-condition) will specify some properties that a useful correctness condition could satisfy.
 
 [[toc]]
 
@@ -19,7 +19,7 @@ To reason about the system, we need a model of it. This section walkthroughs the
 
 Our system consists of $n$ **sequential processes**. We assume $n$ is fixed from the start. These process communicate with each other using a set of **shared objects**. A shared object has a set of **methods** that can be invoked by the processes.
 
-Generally speaking, a process executes by invoking the a method of the objects and receiving a response. The system execution is modeled by a **history**, which is a series of method **invocation** events and method **response** events:
+Generally speaking, a process executes by invoking the a method of the objects and receiving a response. The system execution is modeled by a **history**, which is a finite series of method **invocation** events and method **response** events:
 - An invocation is a triple of $(P, x, args)$ where $P$ is the process ID, $x$ is the object's name and $args$ is the input.
 - A response is triple of $(P, x, resp)$ where $P$ and $x$ are similarly defined and $resp$ is the output.
 
@@ -32,6 +32,20 @@ A history must be **well-formed** which means that in every process subhistory, 
 Now that we have had a clear picture of the system and its execution. Simply put, it's an interleaving of method invocations and responses on a set of shared objects by a set of processes. We now go on to define a correctness condition (Section [Correctness Condition](#correctness-conditions)) and its properties (Section [Properties of A Correctness Condition](#properties-of-a-correctness-condition)).
 
 ## Correctness Condition
+
+Consider $\mathcal{H}$ as the **universe of histories**.
+
+To define whether an algorithm is correct, we must define an algorithm.
+
+An **algorithm** can be thought of as a sole method of a data structure that can be instantiated to a shared object. An **algorithm** when run in a system produces a set of histories. We can equate an algorithm with a set of histories.
+
+**Definition.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
+
+**Definition.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
+
+Note that a correctness condition based on this definition is a mapping of algorithm specifications to a validity functions, not a single validity function. For example, the linearizable queue has a validity function and the linearizable stack has a different validity function. Consequently, it's actually not sufficient to say that "An algorithm is linearizable". You should say, "A queue is linearizable" or "An algorithm is queue-linearizable".
+
+**Unresolved question.** What is an **algorithm specification**?
 
 ## Properties of A Correctness Condition
 
