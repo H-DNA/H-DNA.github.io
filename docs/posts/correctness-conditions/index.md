@@ -43,7 +43,7 @@ An **algorithm** can be thought of as a sole method of a data structure that can
 
 **Definition 2.** A **correctness condition** is a mapping of algorithm specifications to validity functions.
 
-Note that a correctness condition based on this definition is a mapping of algorithm specifications to a validity functions, not a single validity function. For example, the linearizable queue has a validity function and the linearizable stack has a different validity function. Consequently, it's actually not sufficient to say that "An algorithm is linearizable". You should say, "A queue is linearizable" or "An algorithm is queue-linearizable".
+Note that a correctness condition based on this definition is a mapping of algorithm specifications to validity functions, not a single validity function. For example, the linearizable queue has a validity function and the linearizable stack has a different validity function. Consequently, it's actually not sufficient to say that "An algorithm is linearizable". You should say, "A queue is linearizable" or "An algorithm is queue-linearizable".
 
 **Unresolved question.** What is an **algorithm specification**?
 
