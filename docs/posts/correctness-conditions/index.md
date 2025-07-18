@@ -37,7 +37,7 @@ Consider $\mathcal{H}$ as the **universe of histories**.
 
 To define whether an algorithm is correct, we must define an algorithm.
 
-An **algorithm** can be thought of as a sole method of a data structure that can be instantiated to a shared object. An **algorithm** when run in a system produces a set of histories. We can equate an algorithm with a set of histories.
+An **algorithm** can be thought of as a sole method of a data structure that can be instantiated to a shared object. An **algorithm** when run alone in a system produces a set of histories. We can equate an algorithm with a set of histories that it can produce when running alone.
 
 **Definition 1.** A **correctness condition instantiated to an algorithm specification** (or an **instantiated correctness condition**) is a validity function $V:\mathcal{H}\mapsto\{0,1\}$. An algorithm is correct with regard to an instantiated correctness condition if all of its histories $h$ satisfy $V(h) = 1$.
 
@@ -55,7 +55,11 @@ We will present two important properties<sup>4</sup>: locality and non-blocking.
 
 ### Locality
 
+Locality is an important property: correctness is not lost in the process of composition. For example, suppose you have three objects $A$, $B$, $C$. Locality means that if a system with only $A$, a system with only $B$, a system with only $C$ all produce histories that are acceptable according to some instantiated correctness condition, then all histories produced from a system with any combination of $A$, $B$ and $C$ are also acceptable according to that instantiated correctness condition.
+
 **Definition 3.** An instantiated correctness condition $V$ is said to be **local** if $V(H) = 1$ iff $V(H|x) = 1$ for every object $x$ in the system.
+
+Note that it's actually misleading to say that a correctness condition such as linearizability is local.
 
 ### Non-blocking
 
